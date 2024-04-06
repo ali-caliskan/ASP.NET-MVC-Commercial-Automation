@@ -1,0 +1,36 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<CargoDetail>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/_TradeLayout.cshtml";
+}
+
+<br />
+@using (Html.BeginForm("KargoTakip", "TradePanel", FormMethod.Get))
+{
+    <p>
+        Kargo Takip Numarası: @Html.TextBox("p")
+        <input type="submit" value="Ara" />
+    </p>
+}
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Personel</th>
+        <th>Alıcı</th>
+        <th>Tarih</th>
+        <th>Takip Kodu</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <td>@k.Personnel</td>
+            <td>@k.Buyer</td>
+            <td>@k.Date</td>
+            <td>@k.TrackingCode</td>
+            <td><a href="/TradePanel/CariKargoTakip/@k.TrackingCode" class="btn btn-info">Detaylar</a></td>
+        </tr>
+    }
+</table>
+
+

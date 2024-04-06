@@ -1,0 +1,40 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<SalesMovement>
+@{
+    ViewBag.Title = "SatisDetay";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Satış Detayı</h2>
+<br />
+<table class="table table-condensed">
+    <tr>
+        <th>Satış Id</th>
+        <th>Ürün</th>
+        <th>Cari</th>
+        <th>Personel</th>
+        <th>Fiyat</th>
+        <th>Adet</th>
+        <th>Toplam</th>
+        <th>Tarih</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.SalesID</td>
+    <td>@x.Product.ProductsName</td>
+    <td>@x.Trade.TradeName  @x.Trade.TradeSurname</td>
+    <td>@x.Personnel.PersonnelName @x.Personnel.PersonnelSurname</td>
+    <td>@x.Price</td>
+    <td>@x.quantity</td>
+    <td>@x.TotalAmount</td>
+    <td>@x.Date</td>
+
+</tr>
+    }
+
+
+</table>
+<button class="btn btn-default" style="background-color:dodgerblue" >Yazdır</button>
+

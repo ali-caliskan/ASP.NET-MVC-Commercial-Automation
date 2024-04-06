@@ -1,0 +1,39 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<Personnel>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>Personel Adı</th>
+        <th>Soyadı</th>
+        <th>Görsel</th>
+        <th>Departman</th>
+        <th>Güncelle</th>
+        <th>Satışlar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            <td>@k.PersonnelName</td>
+            <td>@k.PersonnelSurname</td>
+            <td>
+                <img src="@k.Personnelİmage" style="width: 120px; height: 85px; display: block; margin: auto;"/>
+            </td>
+            <td>@k.Department.DepartmentName</td>
+               
+            
+            
+            <td><a href="/Personnel/PersonelGetir/@k.PersonnelID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Department/DepartmanPersonelSatis/@k.PersonnelID" class="btn btn-info">Detaylar</a></td>
+
+
+        </tr>
+    }
+</table>
+<a href="/Personnel/PersonelEkle" class="btn btn-info">Personel Ekle</a>
+
+

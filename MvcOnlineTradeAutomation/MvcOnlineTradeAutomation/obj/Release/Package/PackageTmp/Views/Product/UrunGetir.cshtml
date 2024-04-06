@@ -1,0 +1,40 @@
+﻿@model MvcOnlineTradeAutomation.Models.Class.Product
+@{
+    ViewBag.Title = "UrunGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Ürün Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("UrunGuncelle", "Product", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.ProductsID)
+    @Html.LabelFor(x => x.ProductsName)
+    @Html.TextBoxFor(x => x.ProductsName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Brand)
+    @Html.TextBoxFor(x => x.Brand, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Stock)
+    @Html.TextBoxFor(x => x.Stock, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BuyPrice)
+    @Html.TextBoxFor(x => x.BuyPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.SalesPrice)
+    @Html.TextBoxFor(x => x.SalesPrice, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Category.CategoryID)
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    @*@Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.ProductImage)
+    @Html.TextBoxFor(x => x.ProductImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Status)
+    @Html.TextBoxFor(x => x.Status, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}

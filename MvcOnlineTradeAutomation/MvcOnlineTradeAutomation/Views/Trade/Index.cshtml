@@ -1,0 +1,33 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<Trade>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Şehir</th>
+        <th>Mail</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach(var x in Model)
+     {
+        <tr>
+            <td>@x.TradeName</td>
+            <td>@x.TradeSurname</td>
+            <td>@x.TradeCity</td>
+            <td>@x.TradeMail</td>
+            <td><a href="/Trade/CariSil/@x.TradeID" class="btn btn-danger">Sil</a></td>
+            <td><a href="/Trade/CariGetir/@x.TradeID" class="btn btn-warning">Güncelle</a></td>
+            <td><a href="/Trade/MusteriSatis/@x.TradeID" class="btn btn-info">Satış Geçmişi</a></td>
+        </tr>
+     }
+</table>
+<a href="/Trade/YeniCari" class="btn btn-default" style="background-color:lightblue">Yeni Cari Ekle</a>
+

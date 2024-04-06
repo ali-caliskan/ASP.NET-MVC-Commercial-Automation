@@ -1,0 +1,33 @@
+﻿@model MvcOnlineTradeAutomation.Models.Class.Trade
+@{
+    ViewBag.Title = "CariGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br/>
+<h2>Cari Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("CariGuncelle", "Trade", FormMethod.Post)) 
+ {
+<div class="form-group">
+    @Html.HiddenFor(x => x.TradeID)
+    @Html.LabelFor(x => x.TradeName)
+    @Html.TextBoxFor(x => x.TradeName, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.TradeName, "", new { @style = "color:Red" })
+    <br />
+    @Html.LabelFor(x => x.TradeSurname)
+    @Html.TextBoxFor(x => x.TradeSurname, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.TradeSurname, "", new { @style = "color:Orange" })
+    <br />
+    @Html.LabelFor(x => x.TradeCity)
+    @Html.TextBoxFor(x => x.TradeCity, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TradeMail)
+    @Html.TextBoxFor(x => x.TradeMail, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-info">Güncelle</button>
+</div> 
+ }
+
+
+

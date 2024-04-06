@@ -1,0 +1,30 @@
+﻿@model MvcOnlineTradeAutomation.Models.Class.Personnel
+@{
+    ViewBag.Title = "PersonelEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Personel Sayfası</h2>
+<br />
+@*Bu kısımda görselin gelmesi için yazdım.*@ 
+@using (Html.BeginForm("PersonelEkle", "Personnel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <form class="form-group" method="post">
+        @Html.LabelFor(x => x.PersonnelName)
+        @Html.TextBoxFor(x => x.PersonnelName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.PersonnelSurname)
+        @Html.TextBoxFor(x => x.PersonnelSurname, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.Personnelİmage)
+        @*@Html.TextBoxFor(x => x.Personnelİmage, new { @class = "form-control" })*@
+        <input type="file" name="Personnelİmage" />
+        <br />
+        @Html.LabelFor(x => x.Department)
+        @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        @*@Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })*@
+        <br />
+        <button class="btn btn-primary">Kaydet</button>
+    </form>
+}

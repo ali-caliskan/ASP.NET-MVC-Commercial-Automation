@@ -1,0 +1,37 @@
+﻿@model MvcOnlineTradeAutomation.Models.Class.SalesMovement
+@{
+    ViewBag.Title = "SatisGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Satış İşlemi Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("SatisGuncelle", "Sales", FormMethod.Post))
+{
+    @Html.HiddenFor(x => x.SalesID)
+    @Html.LabelFor(x => x.Product)
+    @Html.DropDownListFor(x => x.ProductsID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.Label("Trade")
+    @Html.DropDownListFor(x => x.TradeID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Personnel)
+    @Html.DropDownListFor(x => x.PersonnelID, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.quantity)
+    @Html.TextBoxFor(x => x.quantity, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Price)
+    @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TotalAmount)
+    @Html.TextBoxFor(x => x.TotalAmount, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Date)
+    @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-warning">Güncelle</button>
+}
+

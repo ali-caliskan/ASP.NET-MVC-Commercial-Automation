@@ -1,0 +1,31 @@
+﻿@model MvcOnlineTradeAutomation.Models.Class.Personnel
+@{
+    ViewBag.Title = "PersonelGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Cari Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("PersonelGuncelle", "Personnel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.PersonnelID)
+        @Html.LabelFor(x => x.PersonnelName)
+        @Html.TextBoxFor(x => x.PersonnelName, new { @class = "form-control" })
+
+        <br />
+        @Html.LabelFor(x => x.PersonnelSurname)
+        @Html.TextBoxFor(x => x.PersonnelSurname, new { @class = "form-control" })
+
+        <br />
+        @Html.LabelFor(x => x.Personnelİmage)
+        <input type="file" name="Personnelİmage" />
+        <br />
+        @Html.LabelFor(x => x.Department)
+        @Html.DropDownListFor(x => x.DepartmentID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        <button class="btn btn-info">Güncelle</button>
+    </div>
+}
+

@@ -1,0 +1,35 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<Department>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px;">
+    <tr>
+        <th>ID</th>
+        <th>Departman Adı</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detaylar</th>
+    </tr>
+    @foreach (var k in Model)
+    {
+
+<tr>
+    <td>
+        @k.DepartmentID
+    </td>
+    <td>
+        @k.DepartmentName
+    </td>
+    <td><a href="/Department/DepartmanSil/@k.DepartmentID" class="btn btn-danger">Sil</a></td>
+    <td><a href="/Department/DepartmanGetir/@k.DepartmentID" class="btn btn-warning">Güncelle</a></td>
+    <td><a href="/Department/DepartmanDetay/@k.DepartmentID" class="btn btn-info">Detaylar</a></td>
+
+
+</tr>
+    }
+</table>
+<a href="/Department/DepartmanEkle" class="btn btn-info">Departman Ekle</a>
+

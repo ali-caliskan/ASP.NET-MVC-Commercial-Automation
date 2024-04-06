@@ -1,0 +1,22 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<CargoFollow>
+@{
+    ViewBag.Title = "KargoTakip";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<table class="table table-striped">
+    <tr>
+        <th>Açıklama</th>
+        <th>Tarih</th>
+      
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Statement</td>
+            <td>@x.DateTime</td>
+        </tr>
+    }
+</table>

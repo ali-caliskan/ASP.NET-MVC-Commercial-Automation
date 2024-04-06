@@ -1,0 +1,27 @@
+﻿@model MvcOnlineTradeAutomation.Models.Class.Trade
+@{
+    ViewBag.Title = "YeniCari";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Yeni Müşteri Sayfası</h2>
+<br />
+<form class="from-group" method="post">
+    @Html.LabelFor(x => x.TradeName)
+    @Html.TextBoxFor(x => x.TradeName, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TradeSurname)
+    @Html.TextBoxFor(x => x.TradeSurname, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TradeCity)
+    @Html.TextBoxFor(x => x.TradeCity, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.TradeMail)
+    @Html.TextBoxFor(x => x.TradeMail, new { @class = "form-control" })
+    <br />
+   
+
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

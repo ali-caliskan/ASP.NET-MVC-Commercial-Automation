@@ -1,0 +1,29 @@
+﻿@using MvcOnlineTradeAutomation.Models.Class
+@model List<SalesMovement>
+@{
+    ViewBag.Title = "Siparislerim";
+    Layout = "~/Views/Shared/_TradeLayout.cshtml";
+}
+
+<br />
+<h2>Sipariş Geçmişi</h2>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Tarih</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Product.ProductsName</td>
+            <td>@x.Price</td>
+            <td>@Convert.ToDateTime(x.Date).ToString("dd/MM/yyyy")</td>
+
+        </tr>
+    }
+
+</table>
+
